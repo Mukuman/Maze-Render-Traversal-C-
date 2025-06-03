@@ -13,7 +13,7 @@ This C++ project encodes a maze traversal path into an image using steganography
 - `queue.cpp` / `queue.h` - Custom queue used for breadth-first search.
 - `deque.cpp` / `deque.h` - Custom double-ended queue supporting the queue implementation.
 - `Makefile` - Build automation script.
-- `cs221util/` - Image utility library (includes `PNG`, `RGBAPixel`, and `lodepng`).
+- `util/` - Image utility library (includes `PNG`, `RGBAPixel`, and `lodepng`).
 - `images/` - Contains input images and saves output images.
 
 ---
