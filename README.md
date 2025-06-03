@@ -1,61 +1,80 @@
-# Maze-Render-Traversal-C-
 # Maze Treasure Map Encoder/Decoder
 
-This project embeds a maze traversal path into an image using steganographic techniques and then decodes the embedded data to visualize the solution.
-
-## Overview
-
-- Encodes the shortest path distances from a start point in a maze image into the **low-order bits** of a base image.
-- Uses **Breadth-First Search (BFS)** to traverse the maze and compute distances.
-- Visualizes:
-  - The embedded treasure map (`renderMap`)
-  - The grayscale maze structure (`renderMaze`)
-  - The decoded solution path (`decoder`)
-
-## File Structure
-
-- `main.cpp` — Runs a test using sample images and outputs generated visualizations.
-- `treasureMap.h` — Defines the `treasureMap` class and BFS-based encoding/visualization logic.
-- `stack.cpp` — Implements a basic generic `Stack` class (used in traversal or other utility code).
-- `decoder.[h/cpp]` *(not included)* — Decodes the embedded image data to extract the path.
-- `images/` — Folder containing input and output images:
-  - `zdesmaze.png`, `zdesbase.png` (input)
-  - `zdesembedded.png`, `zdessoln.png`, etc. (output)
-
-## How It Works
-
-1. **Initialization:**
-   - Load maze and base images.
-   - Start BFS from the given coordinate.
-   
-2. **Encoding (in `renderMap`):**
-   - Store distance from the start in the RGB low bits of the base image.
-   - Encoded image looks visually unchanged.
-
-3. **Rendering Maze (`renderMaze`):**
-   - Darkens maze pixels by 50%.
-   - Draws a red square at the starting point.
-
-4. **Decoding (in `decoder`):**
-   - Reads back the distance values and reconstructs the shortest path.
-
-## Requirements
-
-- C++17 or later
-- Custom image utility library `cs221util` (provides `PNG` and `RGBAPixel`)
-- Input images placed in `images/` folder
-
-## Output Examples
-
-- `zdesembedded.png`: base image with embedded maze
-- `zdessoln.png`: decoded solution path
-- `zdesgreyedmaze.png`: grayscale version of the maze
-
-## Educational Purpose
-
-This project is commonly used to demonstrate:
-- Steganography via bitwise operations on image channels
-- BFS traversal in 2D grids
-- Image manipulation in C++
+This C++ project encodes a maze traversal path into an image using steganography and decodes the path to visualize the solution. It uses breadth-first search (BFS) to compute the shortest path from a start location in a maze image and encodes those distances into the low-order bits of a base image.
 
 ---
+
+## Project Files
+
+- `main.cpp` - Main program that runs encoding and decoding on sample images.
+- `treasureMap.cpp` / `treasureMap.h` - Implements the maze traversal, encoding logic, and rendering methods.
+- `decoder.cpp` / `decoder.h` - Extracts and reconstructs the solution path from the encoded image.
+- `stack.cpp` / `stack.h` - Custom stack data structure used in traversal logic.
+- `queue.cpp` / `queue.h` - Custom queue used for breadth-first search.
+- `deque.cpp` / `deque.h` - Custom double-ended queue supporting the queue implementation.
+- `Makefile` - Build automation script.
+- `cs221util/` - Image utility library (includes `PNG`, `RGBAPixel`, and `lodepng`).
+- `images/` - Contains input images and saves output images.
+
+---
+
+## Build Instructions
+
+1. Open a terminal and navigate to the project directory.
+2. Run the following command to build the project:
+
+```bash
+make
+```
+
+This compiles the source files and produces the `pa2` executable.
+
+---
+
+## Running the Program
+
+To run the program:
+
+```bash
+./pa2
+```
+
+This will:
+
+- Load the maze and base images from the `images/` folder
+- Perform BFS traversal and encode the distance data into the image
+- Generate and save the following output images in the `images/` folder:
+
+  - `zdesembedded.png` - Base image with encoded path data
+  - `zdesgreyedmaze.png` - Grayscaled visualization of the maze
+  - `zdessoln.png` - Decoded shortest path from the start
+  - `zdessolnmaze.png` - Solution path overlaid on the maze
+
+---
+
+## Dependencies
+
+- C++17 or later
+- No external libraries required
+- Image functionality is handled by the provided `cs221util` utilities
+
+---
+
+## Learning Objectives
+
+This project demonstrates:
+
+- Grid traversal using breadth-first search (BFS)
+- Image-based steganography through low-order bit encoding
+- Pixel manipulation and image processing
+- Implementation of core data structures (stack, queue, deque)
+
+---
+
+## Clean Up
+
+To remove compiled object files and the executable, run:
+
+```bash
+make clean
+```
