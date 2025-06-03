@@ -3,7 +3,7 @@
 
 This project embeds a maze traversal path into an image using steganographic techniques and then decodes the embedded data to visualize the solution.
 
-## 🧩 Overview
+## Overview
 
 - Encodes the shortest path distances from a start point in a maze image into the **low-order bits** of a base image.
 - Uses **Breadth-First Search (BFS)** to traverse the maze and compute distances.
@@ -12,7 +12,7 @@ This project embeds a maze traversal path into an image using steganographic tec
   - The grayscale maze structure (`renderMaze`)
   - The decoded solution path (`decoder`)
 
-## 📁 File Structure
+## File Structure
 
 - `main.cpp` — Runs a test using sample images and outputs generated visualizations.
 - `treasureMap.h` — Defines the `treasureMap` class and BFS-based encoding/visualization logic.
@@ -22,7 +22,7 @@ This project embeds a maze traversal path into an image using steganographic tec
   - `zdesmaze.png`, `zdesbase.png` (input)
   - `zdesembedded.png`, `zdessoln.png`, etc. (output)
 
-## 🧪 How It Works
+## How It Works
 
 1. **Initialization:**
    - Load maze and base images.
@@ -39,19 +39,19 @@ This project embeds a maze traversal path into an image using steganographic tec
 4. **Decoding (in `decoder`):**
    - Reads back the distance values and reconstructs the shortest path.
 
-## 🛠️ Requirements
+## 🛠Requirements
 
 - C++17 or later
 - Custom image utility library `cs221util` (provides `PNG` and `RGBAPixel`)
 - Input images placed in `images/` folder
 
-## 📸 Output Examples
+## Output Examples
 
 - `zdesembedded.png`: base image with embedded maze
 - `zdessoln.png`: decoded solution path
 - `zdesgreyedmaze.png`: grayscale version of the maze
 
-## 🧠 Educational Purpose
+## Educational Purpose
 
 This project is commonly used to demonstrate:
 - Steganography via bitwise operations on image channels
