@@ -39,7 +39,7 @@ This project embeds a maze traversal path into an image using steganographic tec
 4. **Decoding (in `decoder`):**
    - Reads back the distance values and reconstructs the shortest path.
 
-## 🛠Requirements
+## Requirements
 
 - C++17 or later
 - Custom image utility library `cs221util` (provides `PNG` and `RGBAPixel`)
