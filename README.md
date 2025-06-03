@@ -59,5 +59,3 @@ This project is commonly used to demonstrate:
 - Image manipulation in C++
 
 ---
-
-Feel free to modify paths or filenames to match your project structure.
